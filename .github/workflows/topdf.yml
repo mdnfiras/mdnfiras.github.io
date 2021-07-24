@@ -1,0 +1,20 @@
+name: topdf-cd
+on: [push]
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - name: cd_run
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt install ./google-chrome-stable_current_amd64.deb
+          google-chrome --headless  --disable-gpu --print-to-pdf=resume.pdf index.html 
+      - name: Archive pdf artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: resume-file
+          path: |
+            *.pdf

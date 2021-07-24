@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+@media print {
+	@page { margin: 0; }
+}
+*{
+	font-family: "ubuntu";
+	margin: 0;
+}
+body{
+	margin: 0;
+	padding: 0;
+}
+#cv{
+	width: 1162px;
+	height: 1640px;
+	background-color: #FFF;
+	overflow: hidden;
+}
+/******************************************************************/
+#blacks{
+	background-color: #013;
+	height: 11%;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 20px;
+	float: left;
+	clear: none;
+}
+/******************************************************************/
+#blacks *{
+	color: white;
+}
+#blacks a{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	vertical-align: baseline;
+	background-image: url("icons/icon.png");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	left: -20px;
+	top: 3px;
+	z-index: 99;
+}
+#github-inverted{
+	background-image: url("icons/github-inverted.png") !important;
+}
+#blacks > div{
+	vertical-align: bottom;
+	margin: 0 10px;
+	width: 31%;
+	box-sizing: border-box;
+	display: inline-block;
+	padding: 0 0 0 20px;
+}
+h1{
+	font-size: 29pt;
+	font-weight: lighter;
+	padding: 0 0 15px 0;
+	text-align: left;
+	position: relative;
+}
+h1 p{
+	display: inline-block;
+    margin: 0 10px;
+}
+#blacks p{
+	font-size: 12pt;
+	font-weight: normal;
+	padding: 1px 0;
+	position: relative;
+}
+#blacks span{
+	font-size: 13pt;
+	font-weight: normal;
+	display: inline-block;
+	padding: 5px 7px;
+	background-color: white;
+	color: black;
+	border-radius: 5px;
+	margin: 3px;
+}
+/******************************************************************/
+#whites{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 5px 20px 5px 20px;
+	clear: none;
+	overflow: hidden;
+}
+.section{
+	margin: 0 0 0 0;
+	display: inline-block;
+	width:calc(50% - 2px);
+	vertical-align: top;
+	overflow: hidden;
+}
+
+.box{
+	box-sizing: border-box;
+	width: 100%;
+	margin: 6px 0;
+	padding: 8px 15px;
+	border-radius: 5px;
+	background-color: rgba(0, 40, 120, 0.15);
+	overflow: hidden;
+	
+}
+.box > div{
+	padding-left: 15px;
+	position: relative;
+}
+.box > div > div{
+	padding-left: 20px;
+	margin-bottom: 4px;
+}
+
+#whites *{
+	color: #000;
+}
+h2{
+	font-size: 18pt;
+	font-weight: bold;
+	padding: 0 0 0 5px;
+	margin: 15px 0 0 0;
+	color: #024 !important;
+	position: relative;
+}
+h3{
+	font-size: 15pt;
+	font-weight: bold;
+	margin: 0 0 5px 15px;
+	color: #038 !important;
+	position: relative;
+}
+h4{
+	font-size: 14pt;
+	font-weight: bold;
+	margin: 0;
+	position: relative;
+}
+h5{
+	font-size: 13pt;
+	font-weight: bold;
+	margin: 2px 0 0 0;
+	position: relative;
+}
+h2 > span, h3 > span{
+	font-weight: lighter;
+	font-size: 12pt;
+	display: block;
+}
+h5 p, h4 p, h3 p, h2 p{
+	font-weight: normal;
+	display: inline-block;
+}
+#whites p{
+	font-size: 12pt;
+	padding: 0;
+	position: relative;
+}
+#whites ul{
+	padding-inline-start: 25px;
+}
+#whites a{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	vertical-align: baseline;
+	background-image: url("icons/external-link-symbol.png");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	left: -19px;
+	top: 4px;
+}
+
+#github{
+	background-image: url("icons/github.png") !important;
+}
+#coursera{
+	background-image: url("icons/coursera.png") !important;
+}
+
+#spec1 div{
+	width: 245px;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+skill{
+	display: inline-block;
+	background: #013;
+	color: white !important;
+	padding: 0 3px 1px 3px;
+	margin-top: 1px;
+	border-radius: 5px;
+}
+sup{
+	vertical-align: 13%;
+}
+tools{
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	vertical-align: baseline;
+	background-image: url("icons/tools.png");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
