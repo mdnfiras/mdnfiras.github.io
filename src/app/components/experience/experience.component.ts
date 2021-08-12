@@ -13,22 +13,22 @@ export class ExperienceComponent implements OnInit {
   ngOnInit(): void {
     this.events = [
       {
-        date: "Apr 2021 - Present",
-        location: "Parcus",
-        location_link: "https://parcus.fr/",
-        title: "Front-end Developper",
+        date: "Feb 2021 - Jul 2021",
+        location: "Polytechnique Montréal",
+        location_link: "https://www.polymtl.ca/",
+        title: "Cloud Infrastructure Engineer",
         icon: "http",
         content: "\
-        <a href='https://www.nutislab.com/' target='_blank' class='icon link'></a> Worked on a website for Nutislab for managing their team, clients and orders.\
-        <br>\
-        This included :\
-        <br>\
-        - Creating a dynamic form builder from scartch.\
-        <br>\
-        - Implementing efficiently the orders life-cycle.\
-        <br>\
-        - Designing a user-friendly and functional UI.\
-        ",
+          Unlocking the operators and developers innovation potential by modernizing the applications and network infrastructure.\
+            <br><br>\
+            <ul>\
+              <li>Implementing the organization's servers management solution.</li>\
+              <li>Researching and implementing open source SIEM solutions.</li>\
+              <li>Leveraging the Zero Trust security model principles.</li>\
+              <li>Leading an on-production network transformation toward a highly available and layered network architecture.</li>\
+              <li>Researching and implementing PAM solutions.</li>\
+            </ul>\
+          ",
         links: [
           {
             display: "Recommendation Letter",
@@ -37,20 +37,14 @@ export class ExperienceComponent implements OnInit {
         ]
       },
       {
-        date: "Jul 2021 - Aug 2021",
-        location: "Michigean University",
-        location_link: "https://sites.lsa.umich.edu/",
-        title: "DevOps Engineering Intern",
+        date: "Dec 2020 - Dec 2021",
+        location: "Go My Code",
+        location_link: "https://www.linkedin.com/school/go-my-code/",
+        title: "DevOps Instructor",
         icon: "laptop",
         content: "\
-        - Troubleshooting an AWS server instance.\
-        <br>\
-        - Migrating an old Express website to the lastest Node version.\
-        <br>\
-        - Analyzing and evaluating files and database tables.\
-        <br>\
-        - Containerizing the Express website.\
-        ",
+          Providing professionals with a project oriented DevOps training.\
+          ",
         links: [
           {
             display: "Attestation",
@@ -63,16 +57,50 @@ export class ExperienceComponent implements OnInit {
         ]
       },
       {
-        date: "Jul 2020 - Aug 2020",
-        location: "DOT IT",
-        location_link: "http://www.dotit-corp.com/",
-        title: "Web Development Intern",
+        date: "Jun 2020 - Sep 2020",
+        location: "Eyacom",
+        location_link: "https://www.linkedin.com/company/eyacomitsolutions/",
+        title: "DevOps Engineering Intern",
         icon: "http",
         content: "\
-        - Designing and implementing a pop-up for re-routing a new user to the chosen shop.\
-        <br>\
-       - Implementing a tool for customizing the pop-up contents in the back-office\
-        ",
+          Designing and implementing a proper DevOps workflow.\
+          <br><br><ul>\
+          <li>Aspiring to learn good development, system and security best practices, as well as collaborating with a polyvalent and an Agile team of engineers.</li>\
+          <li>Building, optimizing, securing, and auditing CI/CD pipelines for multiple web app microservices. </li>\
+          </ul>\
+          ",
+        links: [
+          {
+            display: "Report",
+            link: "../../../assets/diplomas/"
+          }
+        ]
+      },
+      {
+        date: "Jul 2019 - Sep 2019",
+        location: "LogiDAS",
+        location_link: "https://www.linkedin.com/company/logidas---editeur-d'erp/",
+        title: "Software Development Intern",
+        icon: "http",
+        content: "\
+        A utomating various administrative and applications specific tasks.\
+          ",
+        links: [
+          {
+            display: "Report",
+            link: "../../../assets/diplomas/"
+          }
+        ]
+      },
+      {
+        date: "Jun 2017 - Jul 2017",
+        location: "Waycon",
+        location_link: "https://www.linkedin.com/company/waycon/",
+        title: "Software Development Intern",
+        icon: "http",
+        content: "\
+          Developing cross-platform libraries to operate security devices.\
+          ",
         links: [
           {
             display: "Report",
