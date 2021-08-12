@@ -1,0 +1,53 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+h1, h2, h3, h4, h5, h6, div, span, p {
+  font-family: "ubuntu" !important;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.linkedin{
+  background-image: url('./assets/icons/linkedin-logo.png');
+}
+
+.email{
+  background-image: url('./assets/icons/envelope.png');
+}
+
+.github{
+  background-image: url('./assets/icons/github-inverted.png');
+}
+
+.location{
+  background-image: url('./assets/icons/placeholder.png');
+}
+
+.phone{
+  background-image: url('./assets/icons/call-answer.png');
+}
+
+.link{
+  background-image: url('./assets/icons/external-link-symbol.png');
+}
+
+.coursera{
+  background-image: url('./assets/icons/coursera.png');
+  margin-bottom: 2px;
+}
+
+.icon {
+  /*filter: brightness(0.5) sepia(1) saturate(1000%) !important;*/
+  filter: brightness(0) sepia(1) saturate(1000%) !important;
+  width: 15px;
+  height: 15px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 10px;
+  display: inline-flex;
+  position: relative;
+  top: 3px;
+  margin-right: 5px;
+}

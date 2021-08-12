@@ -1,0 +1,65 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-card fxLayout="row" fxLayoutAlign="space-around center" fxFlex="85">
+    <div fxFlex="5"></div>
+    <div fxLayout="column">
+      <div mat-card-avatar class="about-image"></div>
+      <!--<h3 class="about-name">{{name}}</h3>-->
+      <p class="header-links" fxLayout="row">
+        <a [href]="github_link" target="_blank" class="icon github"></a>
+        <a [href]="linkedin_link" target="_blank" class="icon linkedin"></a>
+        <a [href]="email_link" target="_blank" class="icon email"></a>
+        <a [href]="phone_link" target="_blank" class="icon phone"></a>
+      </p>
+
+    </div>
+    <div fxFlex="10"></div>
+
+    <div fxFlex>
+      <div fxLayout="column" fxLayoutAlign="space-around stretch" class="name-stuff">
+        <div fxLayout="row" fxLayoutAlign="space-between center" class="name-stuff name-stuff-2">
+          <h1>{{name}}</h1>
+          <span class="buttons">
+            <button mat-raised-button color="accent">Download CV</button>
+            <button mat-raised-button color="primary" (click)="go_to_contact()">Contact</button>
+          </span>
+        </div>
+        <h2> am still developing this thing, dont judge </h2>
+        <h3> Very diligent and autonomous, with a good level in advanced algorithms, infrastructure, automation and security. <br> Well familiar with DevSecOps practices. </h3>
+        <mat-list>
+          <mat-divider [inset]="true"></mat-divider>
+          <mat-list-item>
+            <div fxFlex="50">Age : </div>
+            <div fxFlex="50"> {{age}} </div>
+          </mat-list-item>
+          <mat-divider [inset]="true"></mat-divider>
+          <mat-list-item>
+            <div fxFlex="50">Gender : </div>
+            <div fxFlex="50"> {{gender}} </div>
+          </mat-list-item>
+
+          <mat-divider [inset]="true"></mat-divider>
+          <mat-list-item>
+            <div fxFlex="50">Address : </div>
+            <div fxFlex="50"> {{address}} </div>
+          </mat-list-item>
+          <mat-divider [inset]="true"></mat-divider>
+          <mat-list-item>
+            <div fxFlex="50">Status : </div>
+            <div fxFlex="50"> Final year networks and telecommunication engineering student </div>
+          </mat-list-item>
+          <mat-divider [inset]="true"></mat-divider>
+          <mat-list-item>
+            <div fxFlex="50">Looking for : </div>
+            <div fxFlex="50"> Career in DevSecOps, Cloud and Infrastructure engineering</div>
+          </mat-list-item>
+          <mat-divider [inset]="true"></mat-divider>
+          <!--<mat-list-item>
+            <div fxFlex="50">Availablity : </div>
+            <div fxFlex="50"> Full-time</div>
+          </mat-list-item>-->
+        </mat-list>
+      </div>
+ </div>
+    <div fxFlex="5"></div>
+  </mat-card>
+</div>

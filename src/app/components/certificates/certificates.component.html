@@ -1,0 +1,88 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div fxFlex="95">
+    <h2>Certificates</h2>
+    <mat-accordion [multi]="true" #accord="matAccordion">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <strong>Certified Kubernetes Administrator</strong>
+            <small class="text-muted"> Aug 2021</small>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <small> <a href="" target="_blank" class="icon link"></a> CNCF</small>
+        </div>
+        <br>
+        <br>
+        <button mat-stroked-button color="primary"> View Certificate </button>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <strong>RedHat OpenShift Administration I</strong>
+            <small class="text-muted"> Jan 2021</small>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <small> <a href="" target="_blank" class="icon link"></a> RedHat</small>
+        </div>
+        <br>
+        <br>
+        <button mat-stroked-button color="primary"> View Certificate </button>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <strong>Open Source Software Development, Linux and Git</strong>
+            <small class="text-muted"> Oct 2020</small>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <small> <a href="https://www.coursera.com/" target="_blank" class="icon link"></a> Linux Foundation</small>
+        </div>
+        <br>
+        <p>
+          <a href="https://www.coursera.org/account/accomplishments/certificate/UFV99LTVXSSC" target="_blank" class="icon coursera"></a> Open Source Software Development Methods
+          <br>
+          <a href="https://www.coursera.org/account/accomplishments/certificate/J7VLBX2JBSFM" target="_blank" class="icon coursera"></a> Linux for Developers
+          <br>
+          <a href="https://www.coursera.org/account/accomplishments/certificate/GZLDM8RAKX7M" target="_blank" class="icon coursera"></a> Linux Tools for Developers
+          <br>
+          <a href="https://www.coursera.org/account/accomplishments/certificate/JX2HBLTRPMJK" target="_blank" class="icon coursera"></a> Using Git for Distributed Development
+        </p>
+        <br>
+        <a mat-stroked-button color="primary" href="https://www.coursera.org/account/accomplishments/specialization/EVQSXRBBYKKM" target="_blank" id="coursera"> View Certificate </a>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <strong>Continuous Delivery & DevOps</strong>
+            <small class="text-muted"> Oct 2020</small>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <small> <a href="" target="_blank" class="icon link"></a> University of Virginia</small>
+        </div>
+        <br>
+        <br>
+        <button mat-stroked-button color="primary" href="https://www.coursera.org/account/accomplishments/verify/3P3RHE6DRJ3K" target="_blank"> View Certificate </button>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <strong>Cisco Certified Network Associate (CCNA) 2</strong>
+            <small class="text-muted"> Mai 2019</small>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+          <small> <a href="" target="_blank" class="icon link"></a> Cisco</small>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </div>
+</div>

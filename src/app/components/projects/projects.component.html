@@ -1,0 +1,23 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div fxFlex="95">
+    <h2>Projects</h2>
+    <div class="cards">
+      <mat-card class="card" *ngFor="let project of projects">
+
+        <mat-card-header>
+          <div fxLayout="row">
+            <a class="icon github big"></a>
+            <div>
+              <mat-card-title>{{ project.title }}</mat-card-title>
+              <mat-card-subtitle>{{ project.date }}</mat-card-subtitle>
+            </div>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <p [innerHTML]="project.description">
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
