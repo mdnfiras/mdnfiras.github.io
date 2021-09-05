@@ -13,11 +13,10 @@ jobs:
         run: |
           FRONT_IMG_TAG=$(sha256sum package.json | cut -c1-15)
           echo $FRONT_IMG_TAG
-          RES=$(curl -u mdnfiras:$DOCKER_TOKEN https://registry.hub.docker.com/v2/repositories/mdnfiras/my-angular-base/tags )
-          echo $RES
-          OUT=$(echo "$RES" | grep $FRONT_IMG_TAG )
-          echo $OUT
-          if [ -z "$res" ]; then
+          RES=$(curl -u mdnfiras:$DOCKER_TOKEN https://registry.hub.docker.com/v2/repositories/mdnfiras/my-angular-base/tags | grep $FRONT_IMG_TAG )
+          echo "result is: $RES"
+          docker --help
+          if [ -z "$RES" ]; then
               echo "Did not find image with tag $FRONT_IMG_TAG"
               docker login -u mdnfiras -p $DOCKER_TOKEN
               docker build -f base.Dockerfile -t mdnfiras/my-angular-base:$FRONT_IMG_TAG .
