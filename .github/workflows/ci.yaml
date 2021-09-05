@@ -6,10 +6,19 @@ jobs:
     container: docker://node:16-alpine3.12
     steps:
       - uses: actions/checkout@v2
-      - name: ci_run
+      - name: Preparing base image for front end
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+
         run: |
-          npm install
-          mkdir build
-          npm run ng build --output-path build
+          FRONT_IMG_TAG=$(sha256sum package.json | cut -c1-15)
+          res=$(wget -O - --user mdnfiras --password $DOCKER_TOKEN https://registry.hub.docker.com/v2/repositories/mdnfiras/my-angular-base/tags | grep $FRONT_IMG_TAG )
+          if [ -z "$res" ]; then
+              echo "Did not find image with tag $FRONT_IMG_TAG"
+              docker login -u mdnfiras -p $DOCKER_TOKEN
+              docker build -f base.Dockerfile -t mdnfiras/my-angular-base:$FRONT_IMG_TAG .
+              docker push mdnfiras/my-angular-base:$FRONT_IMG_TAG
+          else
+              echo "Found image with tag $FRONT_IMG_TAG"
+          fi
