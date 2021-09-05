@@ -39,8 +39,10 @@ jobs:
 
           git config user.name "$GITHUB_ACTOR"
           git config user.email "${GITHUB_ACTOR}@bots.github.com"
-
+          
+          git branch
           git checkout "$target_branch"
+          echo "gg"
           git rebase "${remote_name}/${main_branch}"
 
           git add "html/*"
