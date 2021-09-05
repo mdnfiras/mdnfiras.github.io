@@ -5,11 +5,11 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
+      
       - name: Preparing base image for front end
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-
         run: |
           FRONT_IMG_TAG=$(sha256sum package.json | cut -c1-15)
           RES=$(curl -u mdnfiras:$DOCKER_TOKEN https://registry.hub.docker.com/v2/repositories/mdnfiras/my-resume-base/tags | { grep $FRONT_IMG_TAG || true; } )
@@ -22,14 +22,14 @@ jobs:
           else
               echo "Found image with tag $FRONT_IMG_TAG"
           fi
-          
-      - uses: actions/checkout@v2
+
       - name: Front end image build
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
 
         run: |
+          FRONT_IMG_TAG=$(sha256sum package.json | cut -c1-15)
           docker login -u mdnfiras -p $DOCKER_TOKEN
           docker pull mdnfiras/my-resume-base:$FRONT_IMG_TAG
           docker tag mdnfiras/my-resume-base:$FRONT_IMG_TAG my-resume-base:latest
