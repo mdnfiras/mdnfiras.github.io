@@ -11,4 +11,5 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install
+          mkdir build
           npm run ng build --output-path build
