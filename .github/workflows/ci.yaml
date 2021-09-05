@@ -13,6 +13,9 @@ jobs:
         run: |
           FRONT_IMG_TAG=$(sha256sum package.json | cut -c1-15)
           echo $FRONT_IMG_TAG
+          echo "gggg" > hh
+          grep --help
+          cat hh | grep gg
           RES=$(curl -u mdnfiras:$DOCKER_TOKEN https://registry.hub.docker.com/v2/repositories/mdnfiras/my-angular-base/tags | grep $FRONT_IMG_TAG )
           echo "result is: $RES"
           docker --help
