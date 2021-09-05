@@ -8,4 +8,4 @@ RUN npm run ng build
 # Create image based off of the nginx image
 FROM nginx
 
-COPY --from=resume-base /usr/src/app/dist /usr/share/nginx/html
+COPY --from=resume-base /usr/src/app/dist/resume /usr/share/nginx/html
