@@ -27,9 +27,9 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          docker pull mdnfiras/my-resume:latest
+          CONTAINER_ID=$(docker run -d mdnfiras/my-resume:latest )
           mkdir pages
-          docker run -v $(pwd)/pages:/pages mdnfiras/my-resume:latest "/bin/bash -c 'cp -R /usr/share/nginx/html /pages'"
+          docker cp $CONTAINER_ID:/usr/share/nginx/html pages
           ls pages
           cd pages
           pwd
