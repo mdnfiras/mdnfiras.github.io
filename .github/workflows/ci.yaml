@@ -3,7 +3,6 @@ on: [push]
 jobs:
   run:
     runs-on: [ubuntu-latest]
-    container: docker://node:16-alpine3.12
     steps:
       - uses: actions/checkout@v2
       - name: Preparing base image for front end
@@ -12,6 +11,7 @@ jobs:
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
 
         run: |
+          apk add curl
           FRONT_IMG_TAG=$(sha256sum package.json | cut -c1-15)
           res=$(curl -u mdnfiras:$DOCKER_TOKEN https://registry.hub.docker.com/v2/repositories/mdnfiras/my-angular-base/tags | grep $FRONT_IMG_TAG )
           if [ -z "$res" ]; then
