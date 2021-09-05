@@ -50,12 +50,14 @@ jobs:
           
           git checkout -b "$target_branch"
 
+          git rm -rf *
+          git rm -rf .github
           CONTAINER_ID=$(docker run -d mdnfiras/my-resume:latest )
           docker cp $CONTAINER_ID:/usr/share/nginx/html .
           docker stop $CONTAINER_ID
-          mv html docs
-          git add "docs/*"
-          git rm -rf .github
+          mv html/* .
+          rm -rf html
+          git add *
 
           git commit -m "updated GitHub Pages"
           if [ $? -ne 0 ]; then
