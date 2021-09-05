@@ -1,7 +1,11 @@
-FROM node
-WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm install
-RUN npm install -g @angular/cli
-RUN npm install --save-dev @angular-devkit/build-angular
-ENTRYPOINT ["sh", "-c"]
+# Build the front end component in our angular front end base image
+FROM my-angular-base:latest as base
+
+COPY . .
+
+RUN npm run ng build
+
+# Create image based off of the nginx image
+FROM nginx
+
+COPY --from=base /usr/src/app/dist /usr/share/nginx/html
