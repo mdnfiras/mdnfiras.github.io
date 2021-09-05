@@ -11,5 +11,4 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install
-          npm install -g @angular/cli
-          npm install --save-dev @angular-devkit/build-angular
+          npm run ng build --output-path build
