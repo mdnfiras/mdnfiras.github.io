@@ -1,0 +1,15 @@
+name: project-ci
+on: [push]
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    container: docker://node:16-alpine3.12
+    steps:
+      - uses: actions/checkout@v2
+      - name: ci_run
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm install
+          npm install -g @angular/cli
+          npm install --save-dev @angular-devkit/build-angular
