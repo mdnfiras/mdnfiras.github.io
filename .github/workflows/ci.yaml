@@ -13,6 +13,9 @@ jobs:
 
         run: |
           FRONT_IMG_TAG=$(sha256sum package.json | cut -c1-15)
+          echo $FRONT_IMG_TAG
+          wget --help
+          exit
           res=$(wget -O - --user mdnfiras --password $DOCKER_TOKEN https://registry.hub.docker.com/v2/repositories/mdnfiras/my-angular-base/tags | grep $FRONT_IMG_TAG )
           if [ -z "$res" ]; then
               echo "Did not find image with tag $FRONT_IMG_TAG"
