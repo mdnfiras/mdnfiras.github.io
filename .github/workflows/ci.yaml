@@ -23,13 +23,25 @@ jobs:
               echo "Found image with tag $FRONT_IMG_TAG"
           fi
 
+      - name: Front end image build
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+        run: |
+          FRONT_IMG_TAG=$(sha256sum package.json | cut -c1-15)
+          docker login -u mdnfiras -p $DOCKER_TOKEN
+          docker pull mdnfiras/my-resume-base:$FRONT_IMG_TAG
+          docker tag mdnfiras/my-resume-base:$FRONT_IMG_TAG my-resume-base:latest
+          docker build --tag mdnfiras/my-resume:latest .
+          docker push mdnfiras/my-resume:latest
+
       - name: Github pages
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
           CONTAINER_ID=$(docker run -d mdnfiras/my-resume:latest )
-          mkdir pages
-          docker cp $CONTAINER_ID:/usr/share/nginx/html pages
-          ls pages
-          cd pages
+          docker cp $CONTAINER_ID:/usr/share/nginx/html .
+          ls html
+          cd html
           pwd
+          exit 0
