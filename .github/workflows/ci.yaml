@@ -28,9 +28,6 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          CONTAINER_ID=$(docker run -d mdnfiras/my-resume:latest )
-          docker cp $CONTAINER_ID:/usr/share/nginx/html .
-          docker stop $CONTAINER_ID
           repo_uri="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           remote_name="origin"
           main_branch="main"
@@ -40,12 +37,13 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "${GITHUB_ACTOR}@bots.github.com"
           
-          git branch
-          git checkout "$target_branch"
-          echo "gg"
-          git rebase "${remote_name}/${main_branch}"
+          git checkout -b "$target_branch"
 
+          CONTAINER_ID=$(docker run -d mdnfiras/my-resume:latest )
+          docker cp $CONTAINER_ID:/usr/share/nginx/html .
+          docker stop $CONTAINER_ID
           git add "html/*"
+          git rm -rf .github
 
           git commit -m "updated GitHub Pages"
           if [ $? -ne 0 ]; then
