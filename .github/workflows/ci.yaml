@@ -1,0 +1,69 @@
+name: project-ci
+on: [push]
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Preparing base image for front end
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+        run: |
+          FRONT_IMG_TAG=$(sha256sum package.json | cut -c1-15)
+          RES=$(curl -u mdnfiras:$DOCKER_TOKEN https://registry.hub.docker.com/v2/repositories/mdnfiras/my-resume-base/tags | { grep $FRONT_IMG_TAG || true; } )
+          if [ -z "$RES" ]; then
+              echo "Did not find image with tag $FRONT_IMG_TAG"
+              docker login -u mdnfiras -p $DOCKER_TOKEN
+              docker build -f base.Dockerfile -t mdnfiras/my-resume-base:$FRONT_IMG_TAG .
+              docker push mdnfiras/my-resume-base:$FRONT_IMG_TAG
+              docker logout
+          else
+              echo "Found image with tag $FRONT_IMG_TAG"
+          fi
+
+      - name: Front end image build
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+
+        run: |
+          FRONT_IMG_TAG=$(sha256sum package.json | cut -c1-15)
+          docker login -u mdnfiras -p $DOCKER_TOKEN
+          docker pull mdnfiras/my-resume-base:$FRONT_IMG_TAG
+          docker tag mdnfiras/my-resume-base:$FRONT_IMG_TAG my-resume-base:latest
+          docker build --tag mdnfiras/my-resume:latest .
+          docker push mdnfiras/my-resume:latest
+          
+      - name: Github pages
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          repo_uri="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          remote_name="origin"
+          main_branch="main"
+          target_branch="gh-pages"
+
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "${GITHUB_ACTOR}@bots.github.com"
+          
+          git checkout -b "$target_branch"
+
+          git rm -rf *
+          git rm -rf .github
+          CONTAINER_ID=$(docker run -d mdnfiras/my-resume:latest )
+          docker cp $CONTAINER_ID:/usr/share/nginx/html .
+          docker stop $CONTAINER_ID
+          mv html/* .
+          rm -rf html
+          git add *
+
+          git commit -m "updated GitHub Pages"
+          if [ $? -ne 0 ]; then
+              echo "nothing to commit"
+              exit 0
+          fi
+
+          git remote set-url "$remote_name" "$repo_uri" # includes access token
+          git push -f "$remote_name" "$target_branch"
