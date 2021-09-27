@@ -57,6 +57,7 @@ jobs:
           docker stop $CONTAINER_ID
           mv html/* .
           rm -rf html
+          echo "gg" > gg.php
           git add *
 
           git commit -m "updated GitHub Pages"
